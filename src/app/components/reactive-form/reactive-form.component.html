@@ -1,0 +1,281 @@
+<div class="container">
+  <form [formGroup]="userForm" *ngIf="editMode">
+    <div class="form-group">
+      <label for="id">Id</label>
+      <input type="text" 
+              class="form-control" 
+              name="id" 
+              id="id" 
+              formControlName="id">
+      <p *ngIf="userForm.get('id').touched && userForm.get('id').invalid"
+          class="help-block">
+          Id is required!
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" 
+            class="form-control" 
+            name="name" 
+            id="name" 
+            formControlName="name">
+      <p *ngIf="userForm.get('name').touched && userForm.get('name').invalid"
+          class="help-block">Name is required!</p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" 
+            class="form-control" 
+            name="email" 
+            id="email" 
+            formControlName="email">
+      <div *ngIf="userForm.get('email').invalid && userForm.get('email').touched">
+        <p *ngIf="userForm.get('email').errors.required" class="help-block">Email is required!</p>
+        <p *ngIf="userForm.get('email').errors.email" class="help-block">Email is invalid!</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" 
+             class="form-control" 
+             name="phone" 
+             id="phone" 
+             formControlName="phone">
+      <p *ngIf="userForm.get('phone').touched && userForm.get('phone').invalid"
+          class="help-block">
+          Phone number is required!
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" 
+             class="form-control" 
+             name="username" 
+             id="username" 
+             formControlName="username">
+      <div *ngIf="userForm.get('username').touched && userForm.get('username').invalid">
+        <p class="help-block" *ngIf="userForm.get('username').errors.required">Username is required!</p>
+        <p class="help-block" *ngIf="userForm.get('username').errors.username">Username is forbidden!</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="text" 
+             class="form-control" 
+             name="website" 
+             id="website" 
+             formControlName="website">
+      <p *ngIf="userForm.get('website').touched && userForm.get('website').invalid"
+          class="help-block">
+          Website is required!
+         </p>
+    </div>
+    <fieldset formGroupName="address">
+      <legend>Address</legend>
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" 
+                class="form-control" 
+                name="street" 
+                id="street" 
+                formControlName="street">
+        <p *ngIf="userForm.get('address.street').touched && userForm.get('address.street').invalid">
+            Street is required!
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="suite">Suite</label>
+        <input type="text" 
+                class="form-control" 
+                name="suite" 
+                id="suite" 
+                formControlName="suite">
+        <p *ngIf="userForm.get('address.suite').touched && userForm.get('address.suite').invalid">
+            Suite is required!
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" 
+                class="form-control" 
+                name="city" 
+                id="city" 
+                formControlName="city">
+        <p *ngIf="userForm.get('address.city').touched && userForm.get('address.city').invalid">
+            City is required!
+        </p>        
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zipcode</label>
+        <input type="text" 
+                class="form-control" 
+                name="zipcode" 
+                id="zipcode" 
+                formControlName="zipcode">
+        <p *ngIf="userForm.get('address.zipcode').touched && userForm.get('address.zipcode').invalid">
+            Zipcode is required!
+        </p>
+      </div>
+      <fieldset formGroupName="geo">
+        <legend>Geo</legend>
+        <div class="form-group">
+          <label for="lat">Lat</label>
+          <input type="text" 
+                  class="form-control" 
+                  name="lat" 
+                  id="lat" 
+                  formControlName="lat">
+          <p *ngIf="userForm.get('address.geo.lat').touched && userForm.get('address.geo.lat').invalid">
+              Lat is required!
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="lng">Lng</label>
+          <input type="text" 
+                  class="form-control" 
+                  name="lng" 
+                  id="lng" 
+                  formControlName="lng">
+          <p *ngIf="userForm.get('address.geo.lng').touched && userForm.get('address.geo.lng').invalid">
+              Lng is required!
+          </p>
+        </div>
+      </fieldset>
+    </fieldset>
+
+    <fieldset formGroupName="company">
+      <legend>Company</legend>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" 
+                class="form-control" 
+                name="name" 
+                id="name" 
+                formControlName="name">
+        <p *ngIf="userForm.get('company.name').touched && userForm.get('company.name').invalid">
+            Company Name is required!
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="bs">BS</label>
+        <input type="text" 
+                class="form-control" 
+                name="bs" 
+                id="bs" 
+                formControlName="bs">
+        <p *ngIf="userForm.get('company.bs').touched && userForm.get('company.bs').invalid">
+            Company BS Name is required!
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="catchPhrase">Catch Phrase</label>
+        <input type="text" 
+                class="form-control" 
+                name="catchPhrase" 
+                id="catchPhrase" 
+                formControlName="catchPhrase">
+        <p *ngIf="userForm.get('company.catchPhrase').touched && userForm.get('company.catchPhrase').invalid">
+            Company Catch Phrase is required!
+        </p>
+      </div>
+    </fieldset>
+  </form>
+
+  <div *ngIf="!editMode">
+    <div class="form-group">
+      <label>Id</label>
+      <p class="form-control">{{ user.id }}</p>
+    </div>
+    
+    <div class="form-group">
+      <label>Name</label>
+      <p class="form-control">{{ user.name }}</p>
+    </div>
+    
+    <div class="form-group">
+      <label>Email</label>
+      <p class="form-control">{{ user.email }}</p>
+    </div>
+    
+    <div class="form-group">
+      <label>Phone</label>
+      <p class="form-control">{{ user.phone }}</p>
+    </div>
+    
+    <div class="form-group">
+      <label>Username</label>
+      <p class="form-control">{{ user.username }}</p>
+    </div>
+    
+    <div class="form-group">
+      <label>Website</label>
+      <p class="form-control">{{ user.website }}</p>
+    </div>
+    
+    <fieldset>
+      <legend>Address</legend>
+      <div class="form-group">
+        <label>Street</label>
+        <p class="form-control">{{ user.address.street }}</p>
+      </div>
+      
+      <div class="form-group">
+        <label>Suite</label>
+        <p class="form-control">{{ user.address.suite }}</p>
+      </div>
+      
+      <div class="form-group">
+        <label>City</label>
+        <p class="form-control">{{ user.address.city }}</p>
+      </div>
+      
+      <div class="form-group">
+        <label>Zipcode</label>
+        <p class="form-control">{{ user.address.zipcode }}</p>
+      </div>
+      
+      <fieldset>
+        <legend>Geo</legend>
+        <div class="form-group">
+          <label>Lat</label>
+          <p class="form-control">{{ user.address.geo.lat }}</p>
+        </div>
+        
+        <div class="form-group">
+          <label>Lng</label>
+          <p class="form-control">{{ user.address.geo.lng }}</p>
+        </div>
+        
+      </fieldset>  
+    </fieldset>
+    <fieldset>
+      <legend>Company</legend>
+      <div class="form-group">
+        <label>Company Name</label>
+        <p class="form-control">{{ user.company.name }}</p>
+      </div>
+      
+      <div class="form-group">
+        <label>Company BS</label>
+        <p class="form-control">{{ user.company.bs }}</p>
+      </div>
+      
+      <div class="form-group">
+        <label>Company Catch Phrase</label>
+        <p class="form-control">{{ user.company.catchPhrase }}</p>
+      </div>
+      
+    </fieldset>
+  </div>
+
+  
+  <button class="btn" 
+          [ngClass]="editMode ? 'btn-success' : 'btn-primary'"
+          (click)="editOrUpdate()"
+          [disabled]="userForm.touched && userForm.invalid">
+          {{ editMode ? 'Update' : 'Edit' }}
+  </button>
+  <button class="btn btn-warning" *ngIf="editMode" (click)="userForm.reset()">Clear</button>
+  <button class="btn btn-danger" *ngIf="editMode" (click)="onCancel()">Cancel</button>
+
+</div>

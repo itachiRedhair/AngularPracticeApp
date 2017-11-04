@@ -1,0 +1,6 @@
+<a [routerLink]="userAsInput.id">{{ userAsInput.name | uppercase }}</a> | <i class="fa fa-trash-o" 
+aria-hidden="true" 
+(click)="whenIconInsideChildWasClicked(userAsInput.id)">
+</i>
+<!-- <a href="{{ userAsInput.email | appendor: 'pre': 'mailto://' }}">{{ userAsInput.email }}</a> | 
+<a href="{{ userAsInput.phone | appendor: 'pre': 'tel://'}}">{{ userAsInput.phone }}</a> |  -->

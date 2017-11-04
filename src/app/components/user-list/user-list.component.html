@@ -1,0 +1,13 @@
+<div class="container">
+  <ul class="list-group col-lg-4 col-md-4 col-sm-4">
+    <li class="list-group-item"
+        *ngFor="let user of users">
+        <app-user-list-item [userAsInput]="user"
+                            (whenBinIconInsideChildWasClicked)="onDelete($event)">
+        </app-user-list-item>
+    </li>
+  </ul>
+  <div class="col-lg-8 col-md-8 col-sm-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <app-user-list></app-user-list>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <app-user-list></app-user-list>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let user of users">
+            <a [routerLink]="user.id">{{ user.name | uppercase }}</a> | <i class="fa fa-trash-o" 
+               aria-hidden="true" 
+               (click)="onUserDeleted(user.id)">
+            </i>
+        </li>
+    </ul>
+</div>

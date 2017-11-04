@@ -1,0 +1,80 @@
+<form #myForm="ngForm" (ngSubmit)="onFormSubmit(myForm)">
+  <div class="form-group">
+    <label for="name">Name*</label>
+    <input type="text" 
+           name="name" 
+           id="name" 
+           class="form-control"
+           required
+           ngModel
+           #name="ngModel">
+    <p class="help-block"
+       *ngIf="name?.touched && name?.invalid">
+        Name is required
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="email">Email*</label>
+    <input type="text" 
+           id="email" 
+           class="form-control"
+           ngModel
+           name="email"
+           #email="ngModel"
+           required
+           email>
+    <div *ngIf="email.touched && email.errors">
+      <p class="help-block"
+         *ngIf="email.errors.required">
+         Email is required
+      </p>
+      <p class="help-block"
+         *ngIf="email.errors.email">
+         Email is invalid
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="username">Username*</label>
+    <input type="text" 
+           id="username" 
+           class="form-control"
+           name="username"
+           ngModel
+           required>
+    <p class="help-block"
+       *ngIf="myForm?.controls?.username?.touched && myForm?.controls?.username?.invalid">
+       Username is required
+    </p>
+  </div>
+  <div class="form-group" name="address" ngModelGroup="address">
+    <label for="primary">Primary</label>
+    <input type="text" 
+            id="primary" 
+            class="form-control" 
+            ngModel
+            name="primary">
+    <label for="secondary">Secondary</label>
+    <input type="text" 
+            id="secondary" 
+            class="form-control" 
+            ngModel
+            name="secondary">
+    <label for="city">City</label>
+    <input type="text" 
+            id="city" 
+            class="form-control" 
+            ngModel
+            name="city">
+    <label for="zipcode">Zipcode</label>
+    <input type="text" 
+            id="zipcode" 
+            class="form-control" 
+            ngModel
+            name="zipcode">
+  </div>
+  <button class="btn btn-primary" 
+          type="submit">
+          Submit
+  </button>
+</form>

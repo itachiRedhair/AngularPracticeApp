@@ -1,0 +1,26 @@
+<b>Filter by field: </b>
+<select [(ngModel)]="fieldToSearch">
+  <option *ngFor="let field of fields" 
+          value="{{ field }}">
+          {{ field }}
+  </option>
+</select>
+<b>Query: </b>
+<input type="text"
+       placeholder="Type Value of {{fieldToSearch || 'a field'}} to filter" 
+       aria-describedby="basic-addon1"
+       [(ngModel)]="serverStatus">
+<hr>
+<div *ngIf="serverStatus !== '' && fieldToSearch !== ''" 
+      class="alert alert-success" 
+      role="alert">
+      Search Results for {{ serverStatus }} filtered by {{ fieldToSearch }}
+</div>
+<hr>
+<ul class="list-group">
+  <li class="list-group-item"
+      *ngFor="let server of servers | filter: fieldToSearch: serverStatus"
+      [ngClass]="server.status === 'ACTIVE' ? 'list-group-item-success' : 'list-group-item-warning'">
+      {{ server.id }} | {{ server.name }} | {{ server.size }} | {{ server.status }}
+  </li>
+</ul>
